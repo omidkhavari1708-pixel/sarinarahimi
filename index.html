@@ -91,6 +91,9 @@ html[lang=fa] .mind blockquote{letter-spacing:0;line-height:1.6}
 
 /* content */
 .reps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+button.pill,button.rep{font:inherit;color:inherit;background:none;cursor:pointer;text-align:start}
+button.pill:hover{background:var(--ink);color:var(--paper)}
+.dark button.pill:hover{background:var(--paper);color:var(--ink)}
 .rep{border:1.5px solid var(--ink);border-radius:20px;padding:18px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;transition:background .3s,color .3s}
 .rep:hover{background:var(--ink);color:var(--paper)}
 .rep h3{font-size:20px;letter-spacing:-.02em}
@@ -114,7 +117,18 @@ footer .pills .pill{font-size:14px}
 .word{font-size:clamp(56px,13vw,210px);font-weight:600;letter-spacing:-.06em;line-height:.85;margin-top:clamp(32px,6vw,80px);white-space:nowrap}
 footer .legal{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8a8a8a;margin-top:18px}
 
+dialog#sheet{border:0;padding:0;margin:auto;max-width:min(560px,92vw);width:100%;border-radius:var(--r);background:var(--paper);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog#sheet::backdrop{background:rgba(0,0,0,.45);backdrop-filter:blur(4px)}
+#sheet .in{padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:14px}
+#sheet h3{font-size:clamp(26px,3vw,36px)}
+#sheet p{color:var(--mute);font-size:16px}
+#sheet ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+#sheet li{padding:10px 14px;border:1.5px solid var(--line);border-radius:14px;font-size:15px}
+#sheet .x{position:absolute;inset-inline-end:14px;top:14px;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--ink);background:none;color:var(--ink);font-size:18px;cursor:pointer}
+#sheet[open]{animation:up .35s var(--ease)}
+@keyframes up{from{transform:translateY(24px);opacity:0}}
 @media (max-width:900px){
+  dialog#sheet{margin:auto 0 0;max-width:100vw;border-radius:var(--r) var(--r) 0 0}
   nav .links{display:none}
   .hero,.services,.story{grid-template-columns:1fr}
   .hero .photo{aspect-ratio:4/5;order:-1}
@@ -164,7 +178,7 @@ footer .legal{display:flex;justify-content:space-between;font-size:11px;letter-s
       <div class="card"><img src="img/nhl.webp" alt="" loading="lazy" width="1000" height="1250" style="object-position:50% 35%"></div>
       <div class="body">
         <h2 data-fa="برای کسب‌وکارها">For businesses</h2>
-        <div class="pills"><span class="pill" data-fa="استراتژی محتوا">Content strategy</span><span class="pill" data-fa="استراتژی تبلیغات">Advertising strategy</span><span class="pill" data-fa="بررسی محتوای فعلی">Content audit</span></div>
+        <div class="pills"><button class="pill" type="button" data-sheet="strategy" data-fa="استراتژی محتوا">Content strategy</button><button class="pill" type="button" data-sheet="ads" data-fa="استراتژی تبلیغات">Advertising strategy</button><button class="pill" type="button" data-sheet="audit" data-fa="بررسی محتوای فعلی">Content audit</button></div>
         <small data-fa="این‌ها مثال‌ان؛ هر پروژه برای خودت طراحی می‌شه.">Examples. Every project is shaped around you.</small>
       </div>
     </article>
@@ -172,7 +186,7 @@ footer .legal{display:flex;justify-content:space-between;font-size:11px;letter-s
       <div class="card"><img src="img/street.webp" alt="" loading="lazy" width="1000" height="1250" style="object-position:50% 30%"></div>
       <div class="body">
         <h2 data-fa="برای برند شخصی">For personal brands</h2>
-        <div class="pills"><span class="pill" data-fa="پروفایل حرفه‌ای اینستاگرام">Professional Instagram profile</span><span class="pill" data-fa="داستان‌گویی">Storytelling</span><span class="pill" data-fa="برنامه‌ی پیوستگی">Consistency plan</span></div>
+        <div class="pills"><button class="pill" type="button" data-sheet="profile" data-fa="پروفایل حرفه‌ای اینستاگرام">Professional Instagram profile</button><button class="pill" type="button" data-sheet="story" data-fa="داستان‌گویی">Storytelling</button><button class="pill" type="button" data-sheet="consistency" data-fa="برنامه‌ی پیوستگی">Consistency plan</button></div>
         <small data-fa="این‌ها مثال‌ان؛ هر پروژه برای خودت طراحی می‌شه.">Examples. Every project is shaped around you.</small>
       </div>
     </article>
@@ -186,13 +200,13 @@ footer .legal{display:flex;justify-content:space-between;font-size:11px;letter-s
       <span class="label" data-fa="داستان من">My story</span>
       <h2 data-fa="محتوای خوب، یه داستان واقعیه.">Good content is a true story.</h2>
       <p data-fa="بیش از ۹ ساله با کسب‌وکارهای صنایع مختلف کار می‌کنم و الان ارشد استراتژی محتوا و رسانه رو تو دانشگاه NHL هلند می‌خونم. تو اینستاگرام هر چی یاد می‌گیرم رو می‌گم؛ ساده و رو راست، مثل حرف زدن با یه رفیق.">For 9+ years I've worked with businesses across industries, and I'm now doing a Master's in Content &amp; Media Strategy at NHL University in the Netherlands. On Instagram I share what I learn, simply and honestly, like talking to a friend.</p>
-      <div class="pills"><span class="pill" data-fa="+۹ سال تجربه">9+ years</span><span class="pill" data-fa="ارشد · NHL">Master's · NHL</span><span class="pill" data-fa="هلند">Netherlands</span></div>
+      <div class="pills"><button class="pill" type="button" data-sheet="years" data-fa="+۹ سال تجربه">9+ years</button><button class="pill" type="button" data-sheet="nhl" data-fa="ارشد · NHL">Master's · NHL</button><button class="pill" type="button" data-sheet="nl" data-fa="هلند">Netherlands</button></div>
       <span class="label" style="display:block;margin-top:40px" data-fa="از محتواهام">From my content</span>
       <div class="reps">
-        <a class="rep" href="https://instagram.com/by.sarinarahimi" target="_blank" rel="noopener"><h3 data-fa="پروفایل اینستاگرام حرفه‌ای">A professional Instagram profile</h3><span>Instagram ↗</span></a>
-        <a class="rep" href="https://instagram.com/by.sarinarahimi" target="_blank" rel="noopener"><h3 data-fa="عکس کاور باید واقعی باشه">Your cover photo should be real</h3><span>Instagram ↗</span></a>
-        <a class="rep" href="https://instagram.com/by.sarinarahimi" target="_blank" rel="noopener"><h3 data-fa="چندتا منبع فارسی مفید">Useful Persian resources</h3><span>Instagram ↗</span></a>
-        <a class="rep" href="https://instagram.com/by.sarinarahimi" target="_blank" rel="noopener"><h3 data-fa="یه روز تو شمال هلند">A day in the north of the Netherlands</h3><span>Instagram ↗</span></a>
+        <button class="rep" type="button" data-sheet="p-profile"><h3 data-fa="پروفایل اینستاگرام حرفه‌ای">A professional Instagram profile</h3><span>Instagram ↗</span></button>
+        <button class="rep" type="button" data-sheet="p-cover"><h3 data-fa="عکس کاور باید واقعی باشه">Your cover photo should be real</h3><span>Instagram ↗</span></button>
+        <button class="rep" type="button" data-sheet="p-resources"><h3 data-fa="چندتا منبع فارسی مفید">Useful Persian resources</h3><span>Instagram ↗</span></button>
+        <button class="rep" type="button" data-sheet="p-day"><h3 data-fa="یه روز تو شمال هلند">A day in the north of the Netherlands</h3><span>Instagram ↗</span></button>
       </div>
     </div>
   </div>
@@ -229,6 +243,7 @@ footer .legal{display:flex;justify-content:space-between;font-size:11px;letter-s
   <div class="legal"><span>© 2026 Sarina Rahimi</span><span data-fa="استراتژیست محتوا">Content Strategist</span></div>
 </footer>
 
+<dialog id="sheet" aria-labelledby="sheet-t"><button class="x" type="button" aria-label="Close">✕</button><div class="in"><span class="label" id="sheet-k"></span><h3 id="sheet-t"></h3><p id="sheet-p"></p><ul id="sheet-l"></ul><a class="cta light" id="sheet-a" target="_blank" rel="noopener"><span class="txt"></span><span class="go" aria-hidden="true">↗</span></a></div></dialog>
 <svg id="thread" aria-hidden="true"><path/></svg>
 <script>
 (() => {
@@ -248,6 +263,20 @@ footer .legal{display:flex;justify-content:space-between;font-size:11px;letter-s
   html.dataset.theme = t0 || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   th.addEventListener('click', () => theme(html.dataset.theme === 'dark' ? 'light' : 'dark'));
   try { if (localStorage.getItem('lang') === 'fa' || /[?&]fa\b/.test(location.search)) set('fa'); } catch (e) {}
+
+  // sheets: every pill and content card explains itself
+  const D = {"strategy":{"link":"https://ig.me/m/by.sarinarahimi","en":["For businesses","Content strategy","What to say, to whom, where and how often, so every post moves the business forward instead of just filling the feed.",["Audience and positioning","Content pillars","A realistic publishing plan"],"Ask about it"],"fa":["برای کسب‌وکارها","استراتژی محتوا","چی بگی، به کی، کجا و هر چند وقت یه بار؛ که هر پست کسب‌وکار رو یه قدم جلو ببره، نه این‌که فقط فید رو پر کنه.",["مخاطب و جایگاه","ستون‌های محتوا","یه برنامه‌ی انتشار واقع‌بینانه"],"درباره‌ش بپرس"]},"ads":{"link":"https://ig.me/m/by.sarinarahimi","en":["For businesses","Advertising strategy","Ads work best when they sound like your content. We shape the message, the audience and the format together.",["Message and offer","Who sees it","Formats that fit the platform"],"Ask about it"],"fa":["برای کسب‌وکارها","استراتژی تبلیغات","تبلیغ وقتی بهتر جواب می‌ده که شبیه محتوای خودت باشه. پیام، مخاطب و فرمت رو با هم می‌سازیم.",["پیام و پیشنهاد","کی ببینتش","فرمت‌های مناسب هر پلتفرم"],"درباره‌ش بپرس"]},"audit":{"link":"https://ig.me/m/by.sarinarahimi","en":["For businesses","Content audit","A clear look at what you already publish: what works, what does not, and what to change first.",["Review of recent content","What to keep, cut and fix","First three steps"],"Ask about it"],"fa":["برای کسب‌وکارها","بررسی محتوای فعلی","یه نگاه روشن به چیزی که الان منتشر می‌کنی: چی جواب می‌ده، چی نه، و اول از همه چی باید عوض بشه.",["بررسی محتوای اخیر","چی بمونه، چی حذف بشه، چی درست بشه","سه قدم اول"],"درباره‌ش بپرس"]},"profile":{"link":"https://ig.me/m/by.sarinarahimi","en":["For personal brands","Professional Instagram profile","Your profile is the first thing people judge. Name, bio, highlights and pinned posts should tell them in seconds who you are.",["Name and bio","Highlights and pinned posts","A grid that looks like you"],"Ask about it"],"fa":["برای برند شخصی","پروفایل حرفه‌ای اینستاگرام","پروفایلت اولین چیزیه که درباره‌ت قضاوت می‌شه. اسم، بایو، هایلایت و پست‌های سنجاق‌شده باید تو چند ثانیه بگن کی هستی.",["اسم و بایو","هایلایت‌ها و پست‌های سنجاق‌شده","گریدی که شبیه خودت باشه"],"درباره‌ش بپرس"]},"story":{"link":"https://ig.me/m/by.sarinarahimi","en":["For personal brands","Storytelling","People follow people. Your own story, told simply, is the content nobody else can copy.",["Finding your story","Telling it in short videos","Talking to camera like to a friend"],"Ask about it"],"fa":["برای برند شخصی","داستان‌گویی","آدما آدما رو دنبال می‌کنن. داستان خودت، ساده تعریف‌شده، محتواییه که هیچ‌کس نمی‌تونه کپیش کنه.",["پیدا کردن داستانت","تعریف کردنش تو ویدیوهای کوتاه","حرف زدن جلوی دوربین مثل حرف زدن با یه رفیق"],"درباره‌ش بپرس"]},"consistency":{"link":"https://ig.me/m/by.sarinarahimi","en":["For personal brands","Consistency plan","Start, keep going, you do not have to be perfect. A plan small enough to keep, so you actually keep posting.",["A rhythm that fits your life","Ideas ready in advance","Progress over perfection"],"Ask about it"],"fa":["برای برند شخصی","برنامه‌ی پیوستگی","شروع کن، ادامه بده، لازم نیست پرفکت باشی. یه برنامه‌ی کوچیک که بشه نگهش داشت، تا واقعاً ادامه بدی.",["ریتمی که با زندگیت جور باشه","ایده‌های آماده از قبل","پیشرفت، نه کمال"],"درباره‌ش بپرس"]},"years":{"link":"https://instagram.com/by.sarinarahimi","en":["Experience","9+ years","More than nine years collaborating with businesses across different industries.",[],"See on Instagram"],"fa":["تجربه","بیش از ۹ سال","بیش از نُه سال همکاری با کسب‌وکارها تو صنعت‌های مختلف.",[],"تو اینستاگرام ببین"]},"nhl":{"link":"https://instagram.com/by.sarinarahimi","en":["Education","Master's · NHL","Master's in Content & Media Strategy at NHL University in the Netherlands.",[],"See on Instagram"],"fa":["تحصیلات","ارشد · NHL","ارشد استراتژی محتوا و رسانه در دانشگاه NHL هلند.",[],"تو اینستاگرام ببین"]},"nl":{"link":"https://instagram.com/by.sarinarahimi","en":["Based in","Netherlands","Living, studying and creating in the north of the Netherlands.",[],"See on Instagram"],"fa":["محل زندگی","هلند","زندگی، درس و تولید محتوا در شمال هلند.",[],"تو اینستاگرام ببین"]},"p-profile":{"link":"https://instagram.com/by.sarinarahimi","en":["From my content","A professional Instagram profile","What makes a profile look professional, and what to fix first.",[],"Watch on Instagram"],"fa":["از محتواهام","پروفایل اینستاگرام حرفه‌ای","یه پروفایل چی داره که حرفه‌ای دیده بشه، و اول چی رو باید درست کرد.",[],"تو اینستاگرام ببین"]},"p-cover":{"link":"https://instagram.com/by.sarinarahimi","en":["From my content","Your cover photo should be real","Why a real photo of you beats a polished one that does not look like you.",[],"Watch on Instagram"],"fa":["از محتواهام","عکس کاور باید واقعی باشه","چرا یه عکس واقعی از خودت از یه عکس براقی که شبیهت نیست بهتره.",[],"تو اینستاگرام ببین"]},"p-resources":{"link":"https://instagram.com/by.sarinarahimi","en":["From my content","Useful Persian resources","A few Persian resources worth your time.",[],"Watch on Instagram"],"fa":["از محتواهام","چندتا منبع فارسی مفید","چندتا منبع فارسی که ارزش وقت گذاشتن دارن.",[],"تو اینستاگرام ببین"]},"p-day":{"link":"https://instagram.com/by.sarinarahimi","en":["From my content","A day in the north of the Netherlands","A slow day off in one of the northernmost cities of the Netherlands.",[],"Watch on Instagram"],"fa":["از محتواهام","یه روز تو شمال هلند","یه روز تعطیل آروم تو یکی از شمالی‌ترین شهرهای هلند.",[],"تو اینستاگرام ببین"]}};
+  const sh = document.getElementById('sheet');
+  const open = key => {
+    const d = D[key]; if (!d) return; const [k, t, p, list, cta] = d[html.lang === 'fa' ? 'fa' : 'en'];
+    sh.querySelector('#sheet-k').textContent = k; sh.querySelector('#sheet-t').textContent = t; sh.querySelector('#sheet-p').textContent = p;
+    const ul = sh.querySelector('#sheet-l'); ul.replaceChildren(...list.map(x => Object.assign(document.createElement('li'), { textContent: x }))); ul.hidden = !list.length;
+    const a = sh.querySelector('#sheet-a'); a.href = d.link; a.querySelector('.txt').textContent = cta;
+    sh.showModal();
+  };
+  document.addEventListener('click', e => { const b = e.target.closest('[data-sheet]'); if (b) open(b.dataset.sheet); });
+  sh.querySelector('.x').addEventListener('click', () => sh.close());
+  sh.addEventListener('click', e => { if (e.target === sh) sh.close(); });
 
   // ONE unbroken thread: it runs through every headline (inverting the letters it crosses),
   // swings out to the gutters between them, dives behind photos, and ends by underlining her name.
