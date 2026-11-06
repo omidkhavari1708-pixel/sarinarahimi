@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sarina Rahimi · Content Strategist</title>
+<meta name="description" content="Sarina Rahimi, content strategist. Helping businesses and people grow through content.">
+<meta name="theme-color" content="#0f0f0f">
+<link rel="preload" href="img/hero.webp" as="image">
+<style>
+@font-face{font-family:"Inter Tight";src:url(fonts/inter-tight.woff2) format("woff2");font-weight:100 700;font-display:swap}
+@font-face{font-family:Pinar;src:url(fonts/Pinar-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:Pinar;src:url(fonts/Pinar-Medium.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:Pinar;src:url(fonts/Pinar-SemiBold.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:Pinar;src:url(fonts/Pinar-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+html[data-theme=dark]{--page:#0a0a0a;--paper:#151515;--ink:#f2f2f0;--mute:#9a9a9a;--line:#2a2a2a}
+:root{--page:#e8e8e5;--paper:#f7f7f5;--ink:#0f0f0f;--mute:#6b6b6b;--line:#d6d6d2;--r:28px;--pad:clamp(14px,3vw,40px);--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{transition:background .4s,color .4s;background:var(--page);color:var(--ink);font:400 16px/1.55 "Inter Tight",system-ui,sans-serif;-webkit-font-smoothing:antialiased;padding:var(--pad)}
+html[lang=fa] body{font-family:Pinar,Tahoma,sans-serif;font-weight:500;line-height:1.85}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+h1,h2,h3{font-weight:600;letter-spacing:-.035em;line-height:1.02}
+html[lang=fa] h1,html[lang=fa] h2,html[lang=fa] h3{letter-spacing:0;line-height:1.35;font-weight:700}
+html[lang=fa] .mind blockquote,html[lang=fa] .pill,html[lang=fa] .cta .txt{font-weight:700}
+.frame{background:var(--paper);border-radius:calc(var(--r) + 8px);padding:var(--pad);position:relative;overflow:hidden}
+.card{border-radius:var(--r);overflow:hidden;position:relative}
+.dark{background:var(--ink);color:var(--paper)}
+.label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.dark .label{color:#9a9a9a}
+section{margin-top:var(--pad)}
+
+/* pills, like the reference */
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border:1.5px solid currentColor;border-radius:99px;font-size:15px;font-weight:500}
+.cta{display:inline-flex;align-items:center;gap:8px}
+.cta .txt{display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border-radius:99px;background:var(--paper);color:var(--ink);font-weight:600}
+.cta .go{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--paper);color:var(--ink);font-size:18px;transition:transform .35s var(--ease)}
+.cta:hover .go{transform:rotate(-45deg)}
+html[dir=rtl] .cta:hover .go{transform:rotate(45deg)}
+.cta.light .txt,.cta.light .go{background:var(--ink);color:var(--paper)}
+
+/* the unbroken line: one path per section, they meet at the section edges */
+body{position:relative;isolation:isolate}
+#thread{position:absolute;left:0;top:0;pointer-events:none;z-index:2;mix-blend-mode:difference;overflow:visible}
+#thread path{fill:none;stroke:#fff;stroke-width:16;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:900px){#thread path{stroke-width:10}}
+.frame>*{position:relative}
+.card:has(>img){z-index:3}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:var(--pad)}
+nav .name{font-weight:600;font-size:18px;letter-spacing:-.02em}
+nav .links{display:flex;gap:6px}
+nav .links a{padding:6px 12px;border-radius:99px;font-size:14px}
+nav .links a:hover{background:var(--ink);color:var(--paper)}
+.theme{min-width:44px;min-height:44px;border-radius:99px;border:1.5px solid var(--ink);background:none;color:var(--ink);font-size:17px;cursor:pointer;margin-inline-end:6px}
+.lang{min-width:44px;min-height:44px;border-radius:99px;border:1.5px solid var(--ink);background:none;font:600 13px "Inter Tight",sans-serif;cursor:pointer;color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(340px,1fr) 1.55fr;gap:var(--pad);min-height:min(78svh,720px)}
+.hero .dark{padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;justify-content:flex-end;gap:18px}
+.hero h1{font-size:clamp(40px,5vw,72px)}
+.hero p{color:var(--paper);opacity:.72;font-size:15px;max-width:36ch}
+.hero .photo img{object-position:50% 30%}
+
+/* body & mind */
+.mind{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:var(--pad);align-items:center}
+.mind .card{aspect-ratio:4/5}
+.mind blockquote{font-size:clamp(24px,2.6vw,38px);font-weight:500;letter-spacing:-.02em;line-height:1.2;text-align:center;padding:0 8px}
+html[lang=fa] .mind blockquote{letter-spacing:0;line-height:1.6}
+.mind .mantra{display:block;margin-top:22px;font-size:15px;color:var(--mute);font-weight:400}
+.mind s{text-decoration-thickness:2px}
+
+/* services */
+.services{display:grid;grid-template-columns:1fr 1fr;gap:var(--pad)}
+.svc{display:grid;grid-template-rows:auto 1fr;border-radius:var(--r);overflow:hidden;border:1.5px solid var(--ink)}
+.svc .card{border-radius:0;aspect-ratio:16/11}
+.svc .body{padding:clamp(22px,2.6vw,36px);display:flex;flex-direction:column;gap:16px}
+.svc h2{font-size:clamp(30px,3.2vw,46px)}
+.svc small{color:var(--mute)}
+.svc.dark small{color:#9a9a9a}
+
+/* story */
+.story{display:grid;grid-template-columns:1fr 1.25fr;gap:var(--pad);align-items:center}
+.story .card{aspect-ratio:4/5}
+.story h2{font-size:clamp(34px,4vw,60px);margin:14px 0 18px}
+.story p{color:var(--mute);font-size:17px;max-width:46ch;margin-bottom:22px}
+
+/* content */
+.reps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.rep{border:1.5px solid var(--ink);border-radius:20px;padding:18px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;transition:background .3s,color .3s}
+.rep:hover{background:var(--ink);color:var(--paper)}
+.rep h3{font-size:20px;letter-spacing:-.02em}
+.rep span{font-size:13px;color:var(--mute)}
+.rep:hover span{color:#9a9a9a}
+
+/* talk */
+.talk{aspect-ratio:16/8;min-height:380px}
+.talk img{object-position:50% 30%}
+.talk .over{position:absolute;inset:auto 0 0 0;padding:clamp(22px,3vw,40px);background:linear-gradient(0deg,rgba(0,0,0,.65),transparent);color:#fff;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.talk h2{font-size:clamp(30px,4vw,58px)}
+
+/* footer, the black version of the reference's pink block */
+footer{margin-top:var(--pad);padding:clamp(24px,4vw,48px);border-radius:calc(var(--r) + 8px);position:relative;overflow:hidden}
+footer .top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;align-items:start}
+footer h2{font-size:clamp(34px,4vw,56px)}
+footer .pills .pill{font-size:14px}
+.kit{background:var(--paper);color:var(--ink);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.kit h3{font-size:22px}
+.kit p{font-size:14px;color:var(--mute)}
+.word{font-size:clamp(56px,13vw,210px);font-weight:600;letter-spacing:-.06em;line-height:.85;margin-top:clamp(32px,6vw,80px);white-space:nowrap}
+footer .legal{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8a8a8a;margin-top:18px}
+
+@media (max-width:900px){
+  nav .links{display:none}
+  .hero,.services,.story{grid-template-columns:1fr}
+  .hero .photo{aspect-ratio:4/5;order:-1}
+  .mind{grid-template-columns:1fr 1fr}
+  .mind blockquote{grid-column:1/-1;order:-1;padding:12px 0}
+  .reps{grid-template-columns:1fr 1fr}
+  .talk{aspect-ratio:4/5}
+  footer .top{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta .go{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <nav>
+    <span class="name">Sarina Rahimi</span>
+    <div class="links"><a href="#mind" data-fa="فلسفه">Philosophy</a><a href="#services" data-fa="خدمات">Services</a><a href="#story" data-fa="داستان">Story</a><a href="#talk" data-fa="تماس">Contact</a></div>
+    <div><button class="theme" type="button" aria-label="Dark / light mode" title="Dark / light">◐</button><button class="lang" type="button" aria-label="فارسی">FA</button></div>
+  </nav>
+  <header class="hero">
+    <div class="card dark">
+      <span class="label" data-fa="سارینا رحیمی · استراتژیست محتوا">Content Strategist</span>
+      <h1 data-fa="ذهن خوب، محتوای خوب می‌خواد.">Good minds need good content.</h1>
+      <p data-fa="به کسب‌وکارها و آدم‌ها کمک می‌کنم با محتوا رشد کنن. بیش از ۹ سال همکاری با صنایع مختلف. ارشد استراتژی محتوا و رسانه، دانشگاه NHL هلند.">I help businesses and people grow through content. 9+ years collaborating across industries. Master's in Content &amp; Media Strategy, NHL University (NL).</p>
+      <a class="cta" href="https://ig.me/m/by.sarinarahimi" target="_blank" rel="noopener"><span class="txt" data-fa="بیا با هم کار کنیم">Work with me</span><span class="go" aria-hidden="true">↗</span></a>
+    </div>
+    <div class="card photo"><img src="img/hero.webp" alt="Sarina Rahimi" width="1672" height="941" fetchpriority="high"></div>
+  </header>
+</div>
+
+<section class="frame" id="mind">
+  <div class="mind">
+    <div class="card"><img src="img/gym.webp" alt="Sarina training" loading="lazy" width="1000" height="1250"></div>
+    <blockquote>
+      <span data-fa="همون‌طور که بدن خوب به ورزش و تغذیه‌ی خوب نیاز داره، ذهن خوب هم به محتوای خوب نیاز داره.">Just like a strong body needs training and good food, a good mind needs good content.</span>
+      <span class="mantra" data-fa="شروع کن. ادامه بده. لازم نیست <s>پرفکت</s> باشی.">Start. Keep going. You don't have to be <s>perfect</s>.</span>
+    </blockquote>
+    <div class="card"><img src="img/desk.webp" alt="Sarina working at her university" loading="lazy" width="1000" height="1250"></div>
+  </div>
+</section>
+
+<section class="frame" id="services">
+  <span class="label" data-fa="خدمات">Services</span>
+  <div class="services" style="margin-top:16px">
+    <article class="svc dark">
+      <div class="card"><img src="img/nhl.webp" alt="" loading="lazy" width="1000" height="1250" style="object-position:50% 35%"></div>
+      <div class="body">
+        <h2 data-fa="برای کسب‌وکارها">For businesses</h2>
+        <div class="pills"><span class="pill" data-fa="استراتژی محتوا">Content strategy</span><span class="pill" data-fa="استراتژی تبلیغات">Advertising strategy</span><span class="pill" data-fa="بررسی محتوای فعلی">Content audit</span></div>
+        <small data-fa="این‌ها مثال‌ان؛ هر پروژه برای خودت طراحی می‌شه.">Examples. Every project is shaped around you.</small>
+      </div>
+    </article>
+    <article class="svc">
+      <div class="card"><img src="img/street.webp" alt="" loading="lazy" width="1000" height="1250" style="object-position:50% 30%"></div>
+      <div class="body">
+        <h2 data-fa="برای برند شخصی">For personal brands</h2>
+        <div class="pills"><span class="pill" data-fa="پروفایل حرفه‌ای اینستاگرام">Professional Instagram profile</span><span class="pill" data-fa="داستان‌گویی">Storytelling</span><span class="pill" data-fa="برنامه‌ی پیوستگی">Consistency plan</span></div>
+        <small data-fa="این‌ها مثال‌ان؛ هر پروژه برای خودت طراحی می‌شه.">Examples. Every project is shaped around you.</small>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="frame" id="story">
+  <div class="story">
+    <div class="card"><img src="img/curtain.webp" alt="Portrait of Sarina" loading="lazy" width="1000" height="1250"></div>
+    <div>
+      <span class="label" data-fa="داستان من">My story</span>
+      <h2 data-fa="محتوای خوب، یه داستان واقعیه.">Good content is a true story.</h2>
+      <p data-fa="بیش از ۹ ساله با کسب‌وکارهای صنایع مختلف کار می‌کنم و الان ارشد استراتژی محتوا و رسانه رو تو دانشگاه NHL هلند می‌خونم. تو اینستاگرام هر چی یاد می‌گیرم رو می‌گم؛ ساده و رو راست، مثل حرف زدن با یه رفیق.">For 9+ years I've worked with businesses across industries, and I'm now doing a Master's in Content &amp; Media Strategy at NHL University in the Netherlands. On Instagram I share what I learn, simply and honestly, like talking to a friend.</p>
+      <div class="pills"><span class="pill" data-fa="+۹ سال تجربه">9+ years</span><span class="pill" data-fa="ارشد · NHL">Master's · NHL</span><span class="pill" data-fa="هلند">Netherlands</span></div>
+      <span class="label" style="display:block;margin-top:40px" data-fa="از محتواهام">From my content</span>
+      <div class="reps">
+        <a class="rep" href="https://instagram.com/by.sarinarahimi" target="_blank" rel="noopener"><h3 data-fa="پروفایل اینستاگرام حرفه‌ای">A professional Instagram profile</h3><span>Instagram ↗</span></a>
+        <a class="rep" href="https://instagram.com/by.sarinarahimi" target="_blank" rel="noopener"><h3 data-fa="عکس کاور باید واقعی باشه">Your cover photo should be real</h3><span>Instagram ↗</span></a>
+        <a class="rep" href="https://instagram.com/by.sarinarahimi" target="_blank" rel="noopener"><h3 data-fa="چندتا منبع فارسی مفید">Useful Persian resources</h3><span>Instagram ↗</span></a>
+        <a class="rep" href="https://instagram.com/by.sarinarahimi" target="_blank" rel="noopener"><h3 data-fa="یه روز تو شمال هلند">A day in the north of the Netherlands</h3><span>Instagram ↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="card talk" id="talk">
+  <img src="img/talk.webp" alt="Sarina talking" loading="lazy" width="1672" height="941">
+  <div class="over">
+    <h2 data-fa="بیا مثل دو تا رفیق حرف بزنیم.">Let's talk like friends.</h2>
+    <span style="display:flex;gap:10px;flex-wrap:wrap"><a class="cta" href="https://ig.me/m/by.sarinarahimi" target="_blank" rel="noopener"><span class="txt" data-fa="پیام در دایرکت">Message me</span><span class="go" aria-hidden="true">↗</span></a><a class="cta" href="mailto:sarina.rahimiseresht@gmail.com"><span class="txt" data-fa="ایمیل">Email</span><span class="go" aria-hidden="true">↗</span></a></span>
+  </div>
+</section>
+
+<footer class="dark">
+  <div class="top">
+    <div>
+      <h2 data-fa="محتوایی که اسمت رو بزرگ می‌کنه.">Content that grows your name.</h2>
+      <span class="label" style="display:block;margin-top:26px" data-fa="تماس">Contact</span>
+      <p style="margin-top:6px"><a href="mailto:sarina.rahimiseresht@gmail.com">sarina.rahimiseresht@gmail.com</a><br><a href="https://instagram.com/by.sarinarahimi" target="_blank" rel="noopener">@by.sarinarahimi</a><br><a href="https://linktr.ee/sarinarahimi" target="_blank" rel="noopener">linktr.ee/sarinarahimi</a></p>
+    </div>
+    <div>
+      <span class="label" data-fa="صفحه‌ها">Navigate</span>
+      <div class="pills" style="margin-top:10px;flex-direction:column;align-items:flex-start">
+        <a class="pill" href="#mind" data-fa="فلسفه">Philosophy</a><a class="pill" href="#services" data-fa="خدمات">Services</a><a class="pill" href="#story" data-fa="داستان">Story</a><a class="pill" href="#talk" data-fa="تماس">Contact</a>
+      </div>
+    </div>
+    <div class="kit">
+      <h3 data-fa="چک‌لیست رایگان">Free checklist</h3>
+      <p data-fa="پروفایل حرفه‌ای اینستاگرام، قدم به قدم. تو دایرکت برات می‌فرستم.">A professional Instagram profile, step by step. I'll send it to your DMs.</p>
+      <a class="cta light" href="https://ig.me/m/by.sarinarahimi" target="_blank" rel="noopener"><span class="txt" data-fa="بفرستش">Send it to me</span><span class="go" aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="word" aria-hidden="true">Sarina Rahimi</div>
+  <div class="legal"><span>© 2026 Sarina Rahimi</span><span data-fa="استراتژیست محتوا">Content Strategist</span></div>
+</footer>
+
+<svg id="thread" aria-hidden="true"><path/></svg>
+<script>
+(() => {
+  const html = document.documentElement, btn = document.querySelector('.lang');
+  const nodes = [...document.querySelectorAll('[data-fa]')].map(el => ({ el, en: el.innerHTML }));
+  const set = lang => {
+    const fa = lang === 'fa';
+    html.lang = fa ? 'fa' : 'en'; html.dir = fa ? 'rtl' : 'ltr';
+    nodes.forEach(n => n.el.innerHTML = fa ? n.el.dataset.fa : n.en);
+    btn.textContent = fa ? 'EN' : 'FA';
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  };
+  btn.addEventListener('click', () => set(html.lang === 'fa' ? 'en' : 'fa'));
+  // dark mode: follows the device the first time, then remembers the choice
+  const th = document.querySelector('.theme'), theme = v => { html.dataset.theme = v; try { localStorage.setItem('theme', v); } catch (e) {} };
+  let t0 = null; try { t0 = localStorage.getItem('theme'); } catch (e) {}
+  html.dataset.theme = t0 || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  th.addEventListener('click', () => theme(html.dataset.theme === 'dark' ? 'light' : 'dark'));
+  try { if (localStorage.getItem('lang') === 'fa' || /[?&]fa\b/.test(location.search)) set('fa'); } catch (e) {}
+
+  // ONE unbroken thread: it runs through every headline (inverting the letters it crosses),
+  // swings out to the gutters between them, dives behind photos, and ends by underlining her name.
+  const svg = document.getElementById('thread'), path = svg.querySelector('path');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let L = 0, y0 = 0, y1 = 1;
+  const mid = (el, fx = .5, fy = .5) => { const r = el.getBoundingClientRect(); return [r.left + scrollX + r.width * fx, r.top + scrollY + r.height * fy]; };
+  const build = () => {
+    const W = document.documentElement.scrollWidth, H = document.documentElement.scrollHeight, g = W * .035;
+    svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const q = sel => document.querySelector(sel), box = el => { const r = el.getBoundingClientRect(); return { l: r.left + scrollX, r: r.right + scrollX, t: r.top + scrollY, b: r.bottom + scrollY, cx: r.left + scrollX + r.width / 2, cy: r.top + scrollY + r.height / 2 }; };
+    // the thread never crosses text: it only travels through gutters, the gaps between sections, and behind photos
+    const sec = ['header.hero', '#mind', '#services', '#story', '#talk', 'footer'].map(x => box(q(x).closest('.frame,section,footer') || q(x)));
+    const gap = (i) => (sec[i].b + sec[i + 1].t) / 2;
+    const ph = sel => box(q(sel));
+    const foot = box(q('footer')), top = box(q('footer .top')), w = box(q('.word'));
+    const pts = [
+      (c => [g, c.t + 4])(box(q('.hero .dark'))),   // start below the nav, so it never touches her name
+      (c => [c.cx, c.t + (c.b - c.t) * .1])(box(q('.hero .dark'))),   // over the empty top of the black card
+      [ph('.hero .photo').cx, ph('.hero .photo').cy],
+      [W - g, gap(0)],
+      [ph('.mind .card:last-child').cx, ph('.mind .card:last-child').cy],
+      [W - g, gap(1)],
+      [ph('#services .svc:last-child .card').cx, ph('#services .svc:last-child .card').cy],
+      [ph('#services .svc:first-child .card').cx, ph('#services .svc:first-child .card').cy],
+      [g, ph('#services .svc:first-child .card').cy],
+      [g, gap(2)],
+      [ph('.story .card').cx, ph('.story .card').cy],
+      [g, gap(3)],
+      [ph('#talk').cx, ph('#talk').cy],
+      [W - g, gap(4)],
+      [W - g, (top.b + w.t) / 2],
+      [W * .5, (top.b + w.t) / 2 + 10],
+      [w.l + 6, w.b + 10], [w.r, w.b + 10], [W - g, w.b + 4]
+    ];
+    // Catmull-Rom through the points, as smooth cubic Beziers
+    let d = `M ${pts[0][0]} ${pts[0][1]}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+      d += ` C ${p1[0] + (p2[0] - p0[0]) / 6} ${p1[1] + (p2[1] - p0[1]) / 6}, ${p2[0] - (p3[0] - p1[0]) / 6} ${p2[1] - (p3[1] - p1[1]) / 6}, ${p2[0]} ${p2[1]}`;
+    }
+    path.setAttribute('d', d);
+    L = path.getTotalLength(); y0 = pts[0][1]; y1 = pts[pts.length - 1][1];
+    path.style.strokeDasharray = L; draw();
+  };
+  const draw = () => {
+    if (still) { path.style.strokeDashoffset = 0; return; }
+    const t = Math.min(1, Math.max(0, (scrollY + innerHeight * .8 - y0) / (y1 - y0)));
+    path.style.strokeDashoffset = L * (1 - t);
+  };
+  addEventListener('scroll', draw, { passive: true });
+  addEventListener('resize', build);
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(build);
+  addEventListener('load', build);
+  btn.addEventListener('click', () => setTimeout(build, 50));
+})();
+</script>
+</body>
+</html>
